@@ -1,0 +1,12 @@
+[
+  {"name":"suitcase","title":"海蓝旅行箱","role":"第一张照片 · 办公室","credits":20,"taskId":"ba2ba3eb-ad30-4474-aa7c-b3b4d18b7d24"},
+  {"name":"coastal-arch","title":"海岸拱门","role":"第一张照片 · 海岸入口","credits":20,"taskId":"f1d3b259-14ae-4c47-b681-0a1a46f474dc"},
+  {"name":"stone-bridge","title":"跨海石桥","role":"第二张照片 · 空间拼接","credits":20,"taskId":"3447e92d-3a40-4198-bd94-13b732721fbc"},
+  {"name":"palm-tree","title":"海岸棕榈","role":"两岸植被 · 重复布景","credits":20,"taskId":"80247025-d990-4319-b3aa-6098ab1287ce"},
+  {"name":"instant-camera","title":"拍立得相机","role":"第三张照片 · 故事道具","credits":20,"taskId":"59ae29ac-4de2-4621-a5cf-95727b9e7cc1"},
+  {"name":"beach-umbrella","title":"海边遮阳伞","role":"第一段海岸 · 休憩布景","credits":20,"taskId":"d542fdd7-442a-401a-a9b6-392f49abc18d"},
+  {"name":"sailboat","title":"珊瑚色帆船","role":"断桥下的海面","credits":20,"taskId":"03a9f6f1-4a3e-4051-812c-2cd8ea102ace"},
+  {"name":"postcard-kiosk","title":"海边明信片亭","role":"第二张照片 · 故事道具","credits":20,"taskId":"af184cb9-2642-494d-a4d8-5df02481486e"},
+  {"name":"seaside-gazebo","title":"灯塔凉亭","role":"第三张照片 · 终点空间","credits":20,"taskId":"3f713fd1-7c79-41d4-bfe1-b34ec65a842b"},
+  {"name":"lighthouse","title":"红白灯塔","role":"终点地标","credits":20,"taskId":"f9aa616a-5df6-4c31-99ff-41feab1c9bff"}
+]

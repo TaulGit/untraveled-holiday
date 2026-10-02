@@ -1,0 +1,15 @@
+{
+  "generator": "built-in imagegen",
+  "assets": [
+    {
+      "key": "cover",
+      "prompt": "Use case: ads-marketing. Wide 16:9 indie puzzle game cover artwork. A luminous Mediterranean coastal dream: ivory limestone courtyard, turquoise sea, distant richly sculpted green limestone mountains, palm trees and small red-roof lighthouse. Foreground a floating instant photograph perfectly aligns its stone arch bridge with the real broken walkway, clearly expressing photographs becoming real spaces. Beautiful polished painterly 3D game key art, warm sunlight, soft teal shadows, restrained coral accents, strong readable composition. Leave top left sky clean for game title added separately in UI. No text, logos, watermark or people.",
+      "path": "cover.png"
+    },
+    {
+      "key": "mountain",
+      "prompt": "Use case: stylized-concept. Seamless tileable square albedo texture for a beautiful Mediterranean coastal mountain in a stylized realistic 3D game. Pale warm gray limestone cliffs with fine vertical erosion strata and scattered muted olive green scrub and moss, medium scale organic rock variation, convincing natural weathering, softly painted realism. Orthographic uniform rock surface edge to edge, flat diffuse light, no baked shadows, no sky, horizon, sea, objects, text or borders. All edges tile seamlessly. Actual texture map, not a rendered mountain or material sphere.",
+      "path": "public/assets/textures/mountain.png"
+    }
+  ]
+}

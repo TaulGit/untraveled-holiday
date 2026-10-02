@@ -1,0 +1,10 @@
+node_modules/
+dist/
+work/
+.tripo/
+.DS_Store
+
+.env
+.env.*
+*.blend1
+assets/models/*/

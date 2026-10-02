@@ -1,0 +1,25 @@
+{
+  "generator": "built-in imagegen",
+  "assets": [
+    {
+      "key": "sky",
+      "prompt": "Use case: stylized-concept. Asset type: seamless 360-degree equirectangular sky panorama texture for a first-person Mediterranean coastal game. Generate a 2:1 panoramic bitmap, preferably 2048x1024 or larger. Pure open sky only, rich cyan blue upper sky fading to very pale warm turquoise at the horizontal equator, small soft sunlit white cumulus cloud banks concentrated near the horizon with expansive blue negative space above. Lower half pale uniform atmospheric blue because water and land are separate geometry. Beautiful softly painted realistic cloud detail, luminous late morning summer atmosphere, compatible with white limestone architecture and green palms. Correct equirectangular projection, horizontal edges must join seamlessly, zenith without distortion or a sun hotspot. No land, ocean, buildings, people, text, borders, watermark or layout panels.",
+      "path": "sky.png"
+    },
+    {
+      "key": "water",
+      "prompt": "Use case: stylized-concept. Asset type: seamless tileable albedo texture for a turquoise river and sheltered coastal water surface in a 3D game. Square 1024x1024. Orthographic straight-down view, uniformly covers frame edge to edge. Rich muted turquoise/teal water with fine softly painted irregular ripples, sparse luminous pale aqua reflections, small overlapping wavelets with varied organic scales. Calm clear summer water; no large white foam streaks. Even diffuse light, no baked cast shadows, no perspective, no horizon, no shoreline, rocks, objects or text. All four edges tile seamlessly. An actual texture map, not a sphere or material preview. Suitable for subtle repeated UV mapping over a large sea plane.",
+      "path": "water.png"
+    },
+    {
+      "key": "limestone",
+      "prompt": "Use case: stylized-concept. Asset type: seamless square tileable 3D albedo texture. Warm off-white coastal limestone and limewashed plaster, finely porous chalky surface, tiny scattered pores and subtle ivory/cream mineral variation, elegant clean Mediterranean courtyard material with restrained weathering. Orthographic straight-on uniform material only, edge-to-edge 1024x1024, flat even lighting, seamless in both axes. No bricks, mortar lines, large cracks, shading gradients, perspective, objects, text, borders or watermark. Keep low contrast so white architecture stays luminous. Actual game surface texture, not a rendered object.",
+      "path": "limestone.png"
+    },
+    {
+      "key": "wood",
+      "prompt": "Use case: stylized-concept. Asset type: seamless square tileable wood albedo map for a Mediterranean game's pergolas, desks and benches. Honey oak with fine straight long grain running vertically, subtly sun-bleached warm tan, a few fine organic grain curves, low contrast, tactile hand-crafted weathered finish, softly painted natural realism. Orthographic front view, even diffuse lighting. Uniform surface fills 1024x1024 edge to edge, both axes seamless. No plank divisions, seams, nails, big knots, cast shadows, perspective, rendered object, text or borders. Actual color texture for 3D UV mapping.",
+      "path": "wood.png"
+    }
+  ]
+}

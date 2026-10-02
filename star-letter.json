@@ -1,0 +1,20 @@
+{
+  "gameId": 7451,
+  "title": "未出发的假期",
+  "tags": [
+    "薛定谔的假期",
+    "Tripo 3D",
+    "视差解谜"
+  ],
+  "gameCategory": [
+    10005,
+    10002
+  ],
+  "summary": "把照片里的风景放进眼前的世界。穿过门，接上桥，去海边坐一会儿。",
+  "cover": "./cover.png",
+  "gameFile": "./dist",
+  "gameType": 0,
+  "screen": 0,
+  "priceType": 0,
+  "visibility": 1
+}

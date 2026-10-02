@@ -1,0 +1,9 @@
+{
+  "generator": "Blender 4.5",
+  "source": "assets/scenes/holiday-coast.blend",
+  "layers": [
+    "office.glb",
+    "coast.glb"
+  ],
+  "objects": 53
+}
