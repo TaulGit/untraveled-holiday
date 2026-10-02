@@ -24,3 +24,9 @@
 - Included license: `Kenney-License.txt`.
 
 All sounds originate from existing recordings/assets. No synthesized oscillator audio.
+
+## Background music
+
+- `coastal-calm.mp3`: **Coastal Calm**, supplied by the project owner for this game.
+- Original MP3 is used without modification; looped at reduced volume.
+- This track is not covered by the CC0 licenses of the sound effects above.

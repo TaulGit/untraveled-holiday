@@ -576,7 +576,7 @@ if (window.parent !== window && window.GameSDK) {
   });
 }
 
-const state = { phase: 'intro', activePhoto: null, photoPlaced: 0, alignment: 0, alignmentReady: false, transitionUntil: 0, snap: null, sound: false };
+const state = { phase: 'intro', activePhoto: null, photoPlaced: 0, alignment: 0, alignmentReady: false, transitionUntil: 0, snap: null, sound: true };
 const keys = new Set();
 const mobileKeys = new Set();
 let dragging = false;
@@ -697,6 +697,7 @@ function interact() {
 }
 
 $('start-button').addEventListener('click', (event) => {
+  audio.setEnabled(state.sound);
   ui.intro.classList.remove('visible');
   state.phase = 'office';
   if (event.pointerType === 'mouse') desktopMouse = true;

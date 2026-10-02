@@ -81,6 +81,8 @@ docs/                 生成图片提示词及草稿检查记录
 
 ## 场景与声音
 
+- 背景音乐：《Coastal Calm》，由项目作者提供。点击开始后播放，右上角可统一开关声音。
+
 - 建筑、庭院、室内家具与装饰：Blender 建模。
 - 远山：Blender 地形网格搭配生成的岩石纹理。
 - 天空、水面、石材、木纹及封面：imagegen 生成；提示词见 [图片记录](docs/generated-art.json)和[贴图记录](public/assets/textures/manifest.json)。

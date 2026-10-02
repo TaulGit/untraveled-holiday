@@ -1,11 +1,16 @@
-// Recorded CC0 audio only; no oscillators. Sources: assets/audio/CREDITS.md.
+// User-supplied music and recorded ambience. Sources: assets/audio/CREDITS.md.
 export function createAudio() {
   const effects = Object.fromEntries(['paper', 'place', 'finish'].map(name => [name, new Audio(`./assets/audio/${name}.ogg`)]));
+  const music = new Audio('./assets/audio/coastal-calm.mp3');
+  music.loop = true; music.volume = .28; music.preload = 'metadata';
   let enabled = false, outdoors = false, context, gain, source, loading;
   let target = -1;
   function updateGain() {
+    if (enabled && !document.hidden) {
+      if (music.paused) music.play().catch(() => {});
+    } else music.pause();
     if (!gain) return;
-    const next = enabled && !document.hidden ? (outdoors ? .14 : .008) : 0;
+    const next = enabled && !document.hidden ? (outdoors ? .055 : .004) : 0;
     if (next === target) return;
     target = next;
     gain.gain.setTargetAtTime(next, context.currentTime, enabled ? .8 : .12);
