@@ -1,59 +1,114 @@
-# 未出发的假期：照片里的海
+# 未出发的假期
 
-一段可独立通关的第一人称视差解谜游戏。星期一的办公室里有三张海边照片：第一张打开通往海岸的门，第二张补齐跨海石桥，第三张恢复灯塔旁的凉亭。玩家走入最后的照片，收起那段可能存在过的假期。
+![游戏封面](cover.png)
+
+**把照片里的风景，放进眼前的世界。**
+
+一款短篇第一人称空间解谜游戏：从办公室出发，拿起三张照片，对准门框、断桥和凉亭，沿着照片铺出的路走到海边。
+
+面向 **Tripothon S1** 制作，使用 **Tripo 3D、Blender 和 Three.js**。当前为可通关原型，星匣草稿编号 **7451**，尚未正式发布。
+
+## 玩法
+
+1. 找到照片，按 **F** 拿起。
+2. 移动位置和视角，让照片边缘与场景接上。
+3. 边框变绿后按 **F** 放下；照片里的建筑会出现在场景中。
+4. 穿过门、走过桥，抵达灯塔旁的凉亭。
+
+照片由同一套三维场景渲染。放置时视角平滑校准，保持照片与场景的投影一致；照片中的桥和建筑同时启用实体碰撞。
 
 ## 操作
 
-- 电脑：点击开始后，WASD 或方向键移动，直接移动鼠标转动视角，F 或 E 互动。Esc 释放鼠标并暂停，点击画面继续。若嵌入页面不允许锁定鼠标，则使用画面内的鼠标移动转向，同样不需要按住拖动。
-- 手机：左下角方向键移动，拖动画面转动视角，点右下角按钮互动。
-- 对齐照片时，让照片里的建筑线条大致接上真实场景；进入绿色贴合范围后按 F，视角会平滑归位并放下照片。容差随画面高度变化，手机竖屏也适用。
-- 右上角可以开关声音；开场和结尾可查看 Tripo 模型档案。
+| 操作 | 按键 |
+| --- | --- |
+| 移动 | WASD / 方向键 |
+| 转动视角 | 移动鼠标 |
+| 跳跃 | 空格 |
+| 拿取 / 放置 / 互动 | F / E |
+| 暂停、释放鼠标 | Esc |
+| 声音开关 | 右上角 ♪ 按钮 |
 
-## 构建与本地预览
+手机提供方向按钮、触屏转向和互动按钮。建议在电脑上体验；嵌入页面不允许鼠标锁定时，会使用鼠标移动转向。
 
-```powershell
-npm install
-npm run verify:assets
-node scripts/check-alignment.mjs
-node scripts/check-bridge.mjs
+## Tripo 在游戏中的作用
+
+10 件生成模型直接用于游戏：
+
+| 模型 | 用途 |
+| --- | --- |
+| 旅行箱、明信片亭、拍立得相机 | 三张照片的获取地点 |
+| 海岸拱门、石桥、凉亭 | 照片对齐后的空间变化和通行路线 |
+| 灯塔、棕榈树、遮阳伞、帆船 | 海岸地标和环境布置 |
+
+模型为自包含 GLB。生成记录合计 **200 Tripo 积分**，详见 [模型记录](public/assets/models/credits.json)；游戏开场和结尾也可打开模型画廊。运行游戏无需 Tripo API key，不会调用生成接口。
+
+## 本地运行
+
+需要 Node.js 22.12+（建议 24）。
+
+```bash
+npm ci
+npm run dev
+```
+
+构建：
+
+```bash
 npm run build
-star-letter check
+npm run preview
+```
+
+使用已安装的星匣 CLI，在平台环境预览：
+
+```bash
 star-letter dev dist --open
 ```
 
-`star-letter dev` 应指向构建后的 `dist`，预览页需要在启动本地服务的同一台电脑打开。源文件在 `src/`，构建产物在 `dist/`，星匣清单的 `gameFile` 指向 `./dist`。
+CLI 会返回当前 `/dev/preview` 链接。该链接依赖本机服务，不能作为公开试玩地址。此仓库的 `star-letter.json` 绑定作者的草稿；用于自己的账号前，请将 `gameId` 改为 `0`。
 
-## Tripo 使用
+## 项目结构
 
-10 件 Tripo 模型构成主要道具与场景地标：旅行箱、海岸拱门、跨海石桥、棕榈树、拍立得相机、遮阳伞、帆船、明信片亭、灯塔、终点凉亭。生成任务编号、逐件实际积分与关卡用途记录在 `public/assets/models/credits.json`，游戏中的“Tripo 模型档案”也展示这些模型的预览。
+```text
+src/                  游戏、照片对齐、碰撞、跳跃和音频
+public/assets/models/ Tripo 模型、预览和积分记录
+public/assets/scenery/Blender 导出的地图与远山
+public/assets/textures/生成贴图
+public/assets/audio/  海浪录音、交互音效及来源
+assets/scenes/        可编辑的 Blender 源文件和渲染图
+scripts/              场景构建、音频处理和检查脚本
+docs/                 生成图片提示词及草稿检查记录
+```
 
-前一版两件模型消耗 40 积分；本次新增八件消耗 160 积分；项目模型合计 200 积分。所有模型均为自包含 GLB，原始任务产物保存在 `assets/models/tripo-out/`，游戏用文件在 `public/assets/models/`。
+## 场景与声音
 
-照片不是事先画好的插图。每张照片在拿起时由关卡共用的三维场景和固定拍摄相机渲染，保留建筑边缘的真实投影；放下照片时用 340 毫秒平滑校准到该拍摄机位，再显露照片新增的三维结构。可放置范围从原来的 12 像素扩大到画面高度的 7.5%（最少 32 像素），并加上 20% 的退出容差，减少临界闪动。
+- 建筑、庭院、室内家具与装饰：Blender 建模。
+- 远山：Blender 地形网格搭配生成的岩石纹理。
+- 天空、水面、石材、木纹及封面：imagegen 生成；提示词见 [图片记录](docs/generated-art.json)和[贴图记录](public/assets/textures/manifest.json)。
+- 海浪：SamsterBirdies 的实地录音，经过频段整理、音量调整和循环接缝处理；进出室内时缓慢淡入淡出。
+- 交互音效：Kenney Interface Sounds。音频许可和原始链接见 [Audio Credits](public/assets/audio/CREDITS.md)。
 
-## Blender 场景
+重新生成 Blender 场景（使用 Blender 4.5）：
 
-石桥根据实际 GLB 采样桥面高度，角色随桥拱升降；两侧护栏使用带角色半径的碰撞边界，桥头有可见的接地坡道。碰撞与照片中的桥一起启用。
+```bash
+blender --background --factory-startup --python scripts/build-scenery.py
+blender --background --factory-startup --python scripts/build-mountains.py
+```
 
-可编辑地图为 `assets/scenes/holiday-coast.blend`，包含旅行工作室、海岸庭院、Tripo 地标，以及庭院、俯瞰和室内三台构图相机。建筑、地图和装饰用 Blender 制作，按材质合并后导出 `public/assets/scenery/office.glb` 和 `coast.glb`。新景观载入后替换基础方块场景，解谜门、桥和凉亭仍由游戏控制显隐。
+## 检查
 
-重建场景：`blender --background --factory-startup --python scripts/build-scenery.py`。脚本也生成 `assets/scenes/coast-preview.png` 供检查。建模坐标按米计，Blender `(x,y,z)` 对应游戏 `(x,-z,y)`。本次 Blender 建模没有调用新的 Tripo 生成任务。
+```bash
+npm run verify:assets
+node scripts/check-alignment.mjs
+node scripts/check-bridge.mjs
+node scripts/check-world.mjs
+node scripts/check-jump.mjs
+node scripts/check-audio.mjs
+npm run build
+star-letter check
+```
 
+自动检查覆盖照片对齐、桥面高度、实体碰撞、通路及跳跃。浏览器实际手感、音效和平台交互仍需试玩确认。
 
-## 2026-10-02 贴图与碰撞更新
-- 鼠标灵敏度降至水平 0.0013、垂直 0.0012。
-- 内置 imagegen 生成天空、水面、石灰岩、木纹贴图，提示词在 public/assets/textures/manifest.json。
-- 场景实体使用半径 0.16 米的胶囊碰撞，保留门洞、略过叶片；凉亭台阶支持抬脚，桥面沿用实际几何高度。
-- 游戏文案缩短；标题保持一行。
-- 验证：node scripts/check-world.mjs、node scripts/check-bridge.mjs、node scripts/check-alignment.mjs、npm run build、star-letter check --json。
+## 素材许可
 
-## 封面、跳跃与声音
-- 空格跳跃，WASD 移动，鼠标转向，F 互动，Esc 暂停。
-- 点击右上角声音按钮，启用海浪录音与 Kenney CC0 交互音效；来源见 public/assets/audio/CREDITS.md。
-- 新封面用于开始界面与星匣列表；图片提示词见 docs/generated-art.json。
-- 远山源文件 assets/scenes/mountains.blend，重建脚本 scripts/build-mountains.py。
-- npm ci && npm run build；star-letter dev dist --open 启动平台预览。
-
-## 项目地址
-- GitHub（私有）：https://github.com/TaulGit/untraveled-holiday
-- 星匣草稿：7451，未正式发布。
+第三方音效采用 CC0，具体作者、文件映射与处理方式已记录在 Audio Credits。生成素材和游戏代码未附统一开源许可证；仓库公开不代表所有内容采用同一种授权。
