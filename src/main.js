@@ -6,6 +6,7 @@ import { createWorldCollision } from './world-collision.js';
 import { createSurfaceTextures } from './surface-textures.js';
 import { createJump } from './jump.js';
 import { createAudio } from './audio.js';
+import { installLanguages, translate } from './i18n.js';
 import './style.css';
 
 const $ = (id) => document.getElementById(id);
@@ -121,7 +122,7 @@ function labelTexture(text, bg, fg, width = 512, height = 200) {
   cx.font = 'bold 54px "Noto Sans SC", sans-serif';
   cx.textAlign = 'center';
   cx.textBaseline = 'middle';
-  cx.fillText(text, width / 2, height / 2);
+  cx.fillText(text, width / 2, height / 2, width - 50);
   const tex = new THREE.CanvasTexture(c);
   tex.colorSpace = THREE.SRGBColorSpace;
   return tex;
@@ -172,7 +173,7 @@ box(office, 0.57, 0.43, 0.01, 0.82, 1.45, 2.21, new THREE.MeshBasicMaterial({ co
 box(office, 0.28, 0.06, 0.3, 2.4, 1.12, 2.9, mat.paper);
 box(office, 0.95, 0.9, 0.78, -2.7, 0.45, 5.2, mat.wood);
 box(office, 2.2, 0.9, 0.18, -4.29, 2.25, 2.1, mat.trim);
-box(office, 1.7, 0.65, 0.02, -4.17, 2.25, 2.1, new THREE.MeshBasicMaterial({ map: labelTexture('休 假 申 请', '#f5e6c7', '#9d6146') }));
+const leaveSign = box(office, 1.7, 0.65, 0.02, -4.17, 2.25, 2.1, new THREE.MeshBasicMaterial({ map: labelTexture('休 假 申 请', '#f5e6c7', '#9d6146') }));
 for (const [x, z, s] of [[-3.7, 1.3, 1.15],[-3.65,-2.35,0.85],[3.65,-2.25,0.7]]) {
   cylinder(office, 0.36*s, 0.28*s, 0.48*s, x, 0.24*s, z, mat.cream, 10);
   plantCluster(office, x, 0.46*s, z, s);
@@ -923,5 +924,17 @@ window.addEventListener('resize', () => {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
+  if (state.phase === 'align') capturePhoto(state.activePhoto);
+});
+
+installLanguages(locale => {
+  for (const [mesh, text, bg, fg] of [
+    [leaveSign, '休 假 申 请', '#f5e6c7', '#9d6146'],
+    [doorTitle, '未 知 行 程', '#e8d9be', '#7b634f'],
+  ]) {
+    mesh.material.map.dispose();
+    mesh.material.map = labelTexture(translate(text, locale), bg, fg);
+    mesh.material.needsUpdate = true;
+  }
   if (state.phase === 'align') capturePhoto(state.activePhoto);
 });

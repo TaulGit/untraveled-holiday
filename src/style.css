@@ -70,3 +70,10 @@
 #intro{background:linear-gradient(90deg,#123c4e38,#123c4e08),url("/assets/cover.png") center/cover no-repeat;justify-content:flex-start;padding-left:7vw}
 #intro .modal-paper{background:#f6fff2ed;max-width:440px;padding:38px 32px 28px;backdrop-filter:blur(8px)}
 @media(max-width:700px){#intro{justify-content:center;padding:18px;background-position:65% center}#intro .modal-paper{padding:26px 20px}}
+
+#language-toggle{position:fixed;z-index:60;right:110px;top:24px;border:1px solid #b3d5d1;border-radius:30px;background:#f6fff2ed;color:#234b5a;padding:9px 13px;font-size:12px;font-weight:700;cursor:pointer}
+html[lang=en] .brand{letter-spacing:.02em}
+html[lang=en] .controls-hint{max-width:550px;font-size:11px;line-height:1.6;text-align:right}
+html[lang=en] .ending-paper h1{font-size:clamp(18px,4vw,40px)}
+html[lang=en] .hint-card{width:min(350px,calc(100vw - 28px))}
+@media(max-width:700px){#language-toggle{right:80px;top:16px;font-size:11px;padding:9px 10px}.brand{max-width:calc(100vw - 190px);font-size:11px;letter-spacing:0}.brand-mark{flex-shrink:0}html[lang=en] #intro h1{font-size:clamp(28px,8vw,40px)}}
